@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+       {% block metadatos %}
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+            <link rel="icon" type="image/x-icon" href="{{ asset('clave.png') }}" />
+            <link rel="apple-touch-icon" href="{{ asset('img/apple-touch-icon-iphone.png') }}" /> 
+            <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('img/apple-touch-icon-ipad.png') }}" /> 
+            <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('img/apple-touch-icon-iphone4.png') }}" />
+            <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('img/apple-touch-icon-ipad3.png') }}" />
+       {% endblock %} 
+            <title>{% block titulo %}Partituras Musicales Gratis{% endblock %}</title>
+       {% block estilos %}
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/bootstrap-responsive.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/estilosPersonalizados.css') }}">
+       {% endblock %}
+    </head>
+        <body>
+        {% block body %}{% endblock %}
+        {% block footer %}{% endblock %}    
+        {% block javascripts %}
+                <script src="{{ asset('js/jquery-1.9.1.js') }}"></script>
+                <script src="{{ asset('js/bootstrap.js') }}"></script>    
+        {% endblock %}
+        </body>
+</html>
+

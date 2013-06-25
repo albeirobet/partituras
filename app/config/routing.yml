@@ -1,0 +1,4 @@
+albeiro_partituras:
+    resource: "@ALBEIROPartiturasBundle/Resources/config/routing.yml"
+    prefix:   /
+

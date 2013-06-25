@@ -1,0 +1,31 @@
+albeiro_partituras_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: ALBEIROPartiturasBundle:Default:index }
+    
+generos:
+  pattern: /generos/{name}
+  defaults: { _controller: ALBEIROPartiturasBundle:Generos:generos }
+
+agregar_generos:
+  pattern: /generos
+  defaults: { _controller: ALBEIROPartiturasBundle:Generos:agregarGeneros }
+  
+artistas:
+  pattern: /artistas/{name}
+  defaults: { _controller: ALBEIROPartiturasBundle:Artistas:artistas }
+
+agregar_artistas:
+  pattern: /artistas
+  defaults: { _controller: ALBEIROPartiturasBundle:Artistas:agregarArtistas }
+  
+partituras:
+  pattern: /partituras/{name}
+  defaults: { _controller: ALBEIROPartiturasBundle:Partituras:partituras }
+
+agregar_partituras:
+  pattern: /partituras
+  defaults: { _controller: ALBEIROPartiturasBundle:Partituras:agregarPartituras }
+
+inicio:
+  pattern: /inicio
+  defaults: { _controller: ALBEIROPartiturasBundle:Default:index }

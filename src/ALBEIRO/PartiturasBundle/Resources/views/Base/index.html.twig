@@ -1,0 +1,144 @@
+{% extends 'ALBEIROPartiturasBundle:Base:base.html.twig' %}
+
+{#Inicio bloque del cuerpo de la Pagina#}
+{% block body %}
+    
+    {% block menu_estatico %}
+         {{ parent() }}
+    {% endblock %}
+
+{#Inicio Ventana Modal de Login y Registro de Usuarios#}
+{% block ventana_modal_login_registro %}
+<div id="modal_login_registro" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <div id="titulo_iniciar_sesion">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 id="myModalLabel" class="text-center">Iniciar Sesi&oacute;n </h3>   
+        </div>
+        <div id="titulo_recuperar_datos" style="display: none">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 id="myModalLabel" class="text-center">Recuperar Datos </h3>   
+        </div>
+        <div id="titulo_registro_usuario" style="display: none">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 id="myModalLabel" class="text-center">Registro Usuario Nuevo</h3>   
+        </div>
+    </div>
+    <div class="modal-body">
+        <div id="formularioIngreso">
+            <form style="text-align: center" id="formularioLogin" name="formularioLogin">
+                <input type="hidden" name="funcion" id="funcion" value="loginUsuarios">
+                <div class="control-group">
+                    <label class="control-label" for="inputUsername"><strong>Nombre de Usuario</strong></label>
+                    <div class="controls">
+                        <input type="text" required="" id="username_login"  class="user_login" name="username_login" placeholder="Nombre de Usuario">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label " for="inputPassword"><strong>Contrase&#241;a</strong></label>
+                    <div class="controls">
+                        <input type="password" required="" id="password_login" class="pass_login" name="password_login" placeholder="Contrase&#241;a">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <div>
+                            <span id="infor_entrando" class="text-warning ocultar" >Entrando al Sistema</span>
+                            <span id="infor_confirmacion" class="text-success ocultar" >Datos Confirmados</span>
+                            <span id="infor_error" class="text-error ocultar" >Datos Incorrectos, Verifique</span>
+                        </div>
+                        <button type="submit" class="btn btn-primary botonLogin" accesskey="enter">Ingresar</button>
+                        <button  class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+
+                    </div>
+                </div>
+            </form>
+            <p class="text-center">&#191;Olvid&oacute; sus Datos? <a style="cursor: pointer;" ><span id="recuperar_datos" class="text-info">Recup&eacute;relos.</span></a></p>
+            <p class="text-center"> &#191;No tiene una Cuenta?  <a  style="cursor: pointer;" id="registro_usuario"><span class="text-info">Reg&iacute;strese.</span></a></p>
+            <p class="text-center">  <strong><span>Nota: </span></strong> <span>Solo Usuarios Registrados acceden a la Secci&oacute;n de Descargas.</span></p>
+        </div>
+        <div id="recuperarDatos" style="display: none">
+            <p>Ingrese la Direcci&oacute;n de Correo Electronico con la cual se registro y en instantes le enviaremos sus Datos.</p>
+            <form id="formularioRecovery" name="formularioRecovery">
+                <input type="hidden" name="funcion" id="funcion" value="recuperarDatos">                        
+                <div class="control-group">
+                    <label class="control-label" for="inputRecuperarDatos">Correo Electronico</label>
+                    <div class="controls">
+                        <input type="email" id="email_recovery" name="email_recovery" class="caja_recuperar_datos" placeholder="Correo Electronico">
+                        <span id="esperandoConfirmacion" style="display: none" class="text-success">Comprobando Correo Electronico.</span>
+                        <span id="sinConfirmacion" style="display: none" class="text-error">No existe un Usuario Registrado con este Correo Electronico.</span>
+                        <span id="Confirmacionhecha" style="display: none" class="text-success">Datos Enviados a su Bandeja de Entrada.</span>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button type="submit" class="btn btn-primary recuperar_datos">Enviar</button>
+                    <button  class="btn" data-dismiss="modal" aria-hidden="true" >Cancelar</button>
+                </div>
+            </form> 
+        </div>
+
+
+        <div id="frmRegistroUsuario" style="display: none; text-align: center">
+            <form class='contacto' id="formularioRegistro" name="formularioRegistro">
+                <input type="hidden" name="funcion" id="funcion" value="registroUsuarios">
+                <div>
+                    <label ><strong>Nombre y Apellido:</strong></label>
+                    <input type='text' class='code' value='' id="nombres" name="nombres"  placeholder="Nombre y Apellido" required="required">
+                </div>
+                <div>
+                    <label ><strong>Nombre de Usuario:</strong></label>
+                    <input type='text' class='user' value=''  id="username"  name="username"  placeholder="Nombre de Usuario" required="required">
+                </div>
+                <div>
+                    <label ><strong>Contraseña:</strong></label>
+                    <input type='password' class='pass' value=''  id="password" name="password"  placeholder="Contraseña" required="required">
+                </div>
+                <div>
+                    <label ><strong>Confirmar Contraseña:</strong></label>
+                    <input type='password' class='confirm_pass' value=''  id="comfirm_password" name="comfirm_password"  placeholder="Confirmar Contraseña" required="required">
+                </div>
+                <div>
+                    <label ><strong>Correo Electronico:</strong></label>
+                    <input type='email' class='email_register' value=''  id="email_register" name="email_register"  placeholder="Correo Electronico" required="required">
+                </div>
+
+                <label class="checkbox terminosCondiciones">
+                    <input id="terminosCondiciones" type="checkbox" style="float: center"> Acepto los  <span><a href="#">Terminos y Condiciones</a></span>
+                </label>
+
+                <div>
+                    <input type="submit" value="Registrarse" class="boton btn btn-small btn-primary" style="margin-top: 6px;">
+                    <button  class="btn" data-dismiss="modal" aria-hidden="true" style="margin-top: 6px;">Cancelar</button>
+                    <br>
+                    <span id="informacionRegistro" ></span>
+
+                </div>
+            </form>
+            <br><br>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{#Fin Ventana Modal Login, Ingreso de Usuarios#}
+
+{#Inicio Bloque de Presentacion de la Pagina#}
+{% block presentacion %}
+<div id="imgHeader"  class="espacioHeader">
+    <div class="container">
+        <div class="row">
+            <div class="span5">
+                <img src="{{ asset('img/nota_presentacion.png  ')}}" style="margin-top: 20px;" class="imagenHeader">
+            </div>
+            <div class="span5 anuncio" style="margin-top: 40px">
+
+                <p class="anuncio1">Comunidad Virtual De Musicos</p>
+                <p class="anuncio2">Bienvenidos!</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{#Fin Bloque de Presentacion de la Pagina#}
+
+{% endblock %}
+{#Fin bloque del cuerpo de la Pagina#}

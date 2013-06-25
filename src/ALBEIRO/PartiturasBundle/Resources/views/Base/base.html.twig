@@ -1,0 +1,98 @@
+{#Herencia a la plantilla base#}
+{% extends '::base.html.twig' %}
+
+{#Inicio del Cuerpo de la Plantilla #}
+{% block body %}
+
+    {#Inicio del Menú Estatico#}
+    {% block menu_estatico %}
+<header>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="#">
+                    <img src="{{ asset('img/clave.png')}}" class="img-rounded" style="width: 25px;">
+                    Partituras Musicales Gratis
+                </a>
+                <div class="nav-collapse collapse">
+                    <nav>
+                        <ul class="nav">
+                            <li class="active activo_inicio">
+                                <a href="#">
+                                    <i id="activo_inicio" class="icon-home"></i> Inicio </a>
+                            </li>
+                            <li class="activo_partituras">
+                                <a href="paginas/partituras.php"><i  id="activo_partituras" class="icon-music"></i> Partituras</a>
+                            </li>
+                            <li class="activo_quienes_somos">
+                                <a href="paginas/quiensomos.php"><i id="activo_quienes_somos" class="icon-question-sign"></i> &#191;Quienes Somos?</a>
+                            </li>
+                            <li class="activo_comentario">
+                                <a href="#comentarios"><i id="activo_comentario" class="icon-comment"></i> Comentarios</a>
+                            </li>           
+                            <!-- Para el Login de Usuario
+                            <li>
+                                <div class="btn-group">
+                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><i class="icon-user"></i> <?php echo $nombreUsuario; ?> <span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#"><i class="icon-share"></i> Donar Partitura</a></li>
+                                        <li><a href="#"><i class="icon-edit"></i> Editar Perfil</a></li>
+                                        <li class="divider"></li>
+                                        <li><a style="cursor: pointer;" onclick="cerrarSesionIndex()"><i class="icon-off"></i> Cerrar Sesi&oacute;n</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            -->
+                            <li class="activo_login_registro">
+                                <a id="abrir_modal" href="#modal_login_registro"  data-toggle="modal"><i id="activo_login_registro" class="icon-plus-sign"></i> Log In / Registro</a>
+                            </li> 
+
+                        </ul>
+                    </nav>        
+                </div> 
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+{#Fin del Menú Estatico#}
+{% endblock %}
+{#Fin Bloque  del Cuerpo de la Plantilla #}
+
+{#Inicio Bloque para el Pie de Pagina#}
+{% block footer %}
+<footer>
+        <div  style="background-color: #1A1A1A"  id="footer">
+            <div class="container">
+                <div class="row" style="padding-top: 20px; padding-left: 15px; padding-right: 15px;  ">
+                    <div class="span4" style="color: #999999; padding-top: 20px;">
+                        <p>&copy; Partituras Musicales Gratis 2013<br>
+                            Desarrollado por:<br>                            
+                            <a href="mailto:#">Eyder Albeiro</a>
+                        </p>
+
+                    </div>
+
+                    <div class="span1 personalizado1"  style="color: #999999; padding-top: 20px;">
+                        <h4 style="color: #999999">S&iacute;guenos</h4>
+                    </div>
+                    <div class="span3 "  style="color: #999999; padding-top: 20px;">                        
+                        <a href="#"><img src="{{ asset('img/social/facebook.png')}}" style="width: 40px;"></a> 
+                        <a href="#"><img src="{{ asset('img/social/twitter.png')}}" style="width: 40px;"></a> 
+                        <a href="#"><img src="{{ asset('img/social/youtube.png')}}" style="width: 40px;"></a> 
+                    </div>
+
+                    <div class="span2"  style="color: #999999; padding-top: 20px;">
+                        <a href="#">  <p> <img src="{{ asset('img/logo_black.png')}}"></p>  </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</footer>
+{% endblock %} 
+{#Fin Bloque para el Pie de Pagina#}

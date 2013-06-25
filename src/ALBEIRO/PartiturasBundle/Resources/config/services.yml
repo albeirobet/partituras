@@ -1,0 +1,7 @@
+parameters:
+#    albeiro_partituras.example.class: ALBEIRO\PartiturasBundle\Example
+
+services:
+#    albeiro_partituras.example:
+#        class: %albeiro_partituras.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
